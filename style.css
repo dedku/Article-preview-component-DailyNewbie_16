@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap');
 
 :root {
     --clr-blue-800: hsl(217, 19%, 35%);
@@ -30,7 +30,7 @@ ol[role='list'] {
 
 html,
 body {
-    height: 100%;
+    min-height: 100vh;
 }
 
 html {
@@ -81,10 +81,9 @@ svg {
 body {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: var(--fs-100);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
+    background-color: var(--clr-blue-200);
 }
 
 main,
@@ -94,9 +93,8 @@ section {
 }
 
 section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
 }
 
 /* utilities */
@@ -104,12 +102,180 @@ section {
 
 
 /* components */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    width: 85%;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+
+.card>img {
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.card-info {
+    padding: 2rem 3rem;
+}
+
+.card-info h1 {
+    padding-top: 1rem;
+    font-size: 1.7rem;
+    color: var(--clr-blue-800);
+    font-weight: 600;
+}
+
+.card-info p {
+    padding-top: 1rem;
+    color: var(--clr-blue-600);
+}
+
+.card-social {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-author {
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.card-social img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 4rem;
+}
+
+.class-name {
+    color: var(--clr-blue-800);
+    font-weight: 600;
+}
+
+.card-date {
+    color: var(--clr-blue-400);
+}
+
+.btn-cta {
+    cursor: pointer;
+    margin-left: auto;
+    padding: 7px;
+    background-color: var(--clr-blue-200);
+    border-radius: 50%;
+    border: 1px solid var(--clr-blue-200);
+}
+
+.btn-cta img {
+    width: 1.5rem;
+    object-fit: contain;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.share {
+    display: flex;
+    visibility: hidden;
+    width: 190px;
+    background: hsl(217, 19%, 35%);
+    color: hsl(212, 23%, 69%);
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    left: 65%;
+    top: 75%;
+    letter-spacing: 3px;
+}
+
+.share p {
+    padding: 3px;
+    margin-top: 0.6rem;
+    margin-left: 10px;
+}
+
+.share img {
+    width: 3rem;
+    padding: 2px;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.flex {
+    display: flex;
+}
+
+.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 .attribution {
     font-size: 11px;
     text-align: center;
+
 }
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.attribution a:hover {
+    color: hsl(24, 81%, 56%);
+}
+
+@media (min-width: 30em) {
+    .card {
+        width: 40rem;
+    }
+}
+
+@media (min-width: 60em) {
+    .card {
+        justify-content: space-evenly;
+        height: 25rem;
+        width: 65rem;
+        flex-direction: row;
+    }
+
+    .card>img {
+        object-fit: cover;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        width: 25rem;
+        height: 25rem;
+        border-bottom-left-radius: 1rem;
+        border-top-right-radius: 0rem;
+    }
 }
